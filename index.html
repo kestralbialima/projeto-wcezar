@@ -1,206 +1,453 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uma Experiência</title>
+    <title>Washington Cezar - Mais que uma Tattoo, Uma Experiência</title>
 
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Playfair+Display:wght@700&display=swap"
         rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
+    <!-- Favicon -->
+    <link rel="icon" href="https://placehold.co/32x32/000000/FFD700?text=WC" type="image/png">
 
-    <link rel="icon" href="img/logo.png" type="image/x-icon">
-    <link rel="icon" href="img/logo.png" type="image/png">
+    <!-- Custom Styles for animations and fonts -->
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #000;
+        }
+
+        .font-playfair {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Efeito neon para o título principal (amarelo brilhante) */
+        .text-shadow-neon-gold-bright {
+            text-shadow: 0 0 2px #000, 0 0 5px #FFD700, 0 0 10px #FFD700, 0 0 20px #FFC107;
+        }
+
+        /* Efeito neon para títulos de seção (amarelo mais escuro) */
+        .text-shadow-neon-gold {
+            text-shadow: 0 0 2px #000, 0 0 5px #eab308, 0 0 10px #eab308, 0 0 20px #ca8a04;
+        }
+
+        /* Efeito neon para títulos de cards (amarelo bem escuro) */
+        .text-shadow-neon-gold-dark {
+            text-shadow: 0 0 2px #000, 0 0 5px #ca8a04, 0 0 8px #ca8a04, 0 0 15px #a16207;
+        }
+
+        .text-shadow-neon-white {
+            text-shadow: 0 0 2px #000, 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ccc;
+        }
+
+        @keyframes neonGlow {
+            from {
+                text-shadow: 0 0 2px #000, 0 0 5px currentColor, 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+            }
+
+            to {
+                text-shadow: 0 0 2px #000, 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor, 0 0 50px currentColor;
+            }
+        }
+
+        .animate-neon-glow {
+            animation: neonGlow 2.5s ease-in-out infinite alternate;
+        }
+
+        /* Animação de subida para os títulos */
+        @keyframes titleRise {
+            from {
+                opacity: 0;
+                transform: translateY(25px) scale(0.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+    </style>
 </head>
 
-<body>
-    <div class="background-fixed"></div>
-    <main class="container">
-        <h1>
-            <p class="texto-tattoo">
-                <span class="tattoo-line1">MAIS QUE UMA TATTOO</span>
-                <span class="tattoo-line2">UMA EXPERIÊNCIA</span>
-            </p>
-        </h1>
-        <nav class="category-nav">
-            <div class="category-card" data-category="realismo">
-                <div class="card-content">
-                    <h2>Realismo</h2>
-                    <p>Detalhes que saltam aos olhos, capturando a essência da realidade.</p>
-                </div>
-            </div>
+<body class="bg-black text-gray-100">
 
-            <div class="category-card" data-category="pet">
-                <div class="card-content">
-                    <h2>Pet</h2>
-                    <p>Homenageie seu companheiro com uma arte fiel e emocionante.</p>
-                </div>
-            </div>
-
-            <div class="category-card" data-category="blackwork">
-                <div class="card-content">
-                    <h2>Blackwork</h2>
-                    <p>Traços fortes e impacto visual com a elegância do preto.</p>
-                </div>
-            </div>
-
-            <div class="category-card" data-category="homenagem">
-                <div class="card-content">
-                    <h2>Homenagem</h2>
-                    <p>Vamos eternizar momentos e pessoas especiais.</p>
-                </div>
-            </div>
-            <div class="category-card" data-category="fine-line">
-                <div class="card-content">
-                    <h2>Fine Line</h2>
-                    <p>Traços finos e delicados para uma tatuagem elegante e minimalista.</p>
-                </div>
-            </div>
-        </nav>
-    </main>
-
-    <section id="gallery-overlay">
-        <span class="close-gallery">&times;</span>
-
-        <div class="gallery-content-wrapper">
-            <h2>GALERIA</h2>
-            <div class="media-grid">
-
-                <div class="media-item" data-category="realismo" data-src="vid/realismo.mov">
-                    <video src="vid/realismo.mov" preload="metadata" muted playsinline autoplay></video>
-                    <div class="play-icon">►</div>
-                </div>
-                <div class="media-item" data-category="realismo" data-src="vid/realismo1.mov">
-                    <video src="vid/tigre.mov" preload="metadata" muted playsinline autoplay></video>
-                    <div class="play-icon">►</div>
-                </div>
-
-                <div class="media-item" data-category="pet" data-src="vid/pet.mov">
-                    <video src="vid/pet.mov" preload="metadata" muted playsinline autoplay></video>
-                    <div class="play-icon">►</div>
-                </div>
-                <div class="media-item" data-category="pet" data-src="vid/pet1.mov">
-                    <video src="vid/pet1.mov" preload="metadata" muted playsinline autoplay></video>
-                    <div class="play-icon">►</div>
-                </div>
-
-                <div class="media-item" data-category="blackwork" data-src="vid/blackwork.MOV">
-                    <video src="vid/blackwork.MOV" preload="metadata" muted playsinline autoplay></video>
-                    <div class="play-icon">►</div>
-                </div>
-                <div class="media-item" data-category="blackwork" data-src="vid/blackwork1.MOV">
-                    <video src="vid/blackwork1.MOV" preload="metadata" muted playsinline autoplay></video>
-                    <div class="play-icon">►</div>
-                </div>
-                <div class="media-item" data-category="homenagem" data-src="vid/homenagem.mov">
-                    <video src="vid/jesus.MOV" preload="metadata" muted playsinline autoplay></video>
-                    <div class="play-icon">►</div>
-                </div>
-                <div class="media-item" data-category="homenagem" data-src="vid/homenagem.mov">
-                    <video src="vid/homenagem.mov" preload="metadata" muted playsinline autoplay></video>
-                    <div class="play-icon">►</div>
-                </div>
-                <div class="media-item" data-category="homenagem" data-src="vid/homenagem1.mov">
-                    <video src="vid/homenagem1.mov" preload="metadata" muted playsinline ></video>
-                    <div class="play-icon">►</div>
-                </div>
-                <div class="media-item" data-category="homenagem" data-src="vid/homenagem1.mov">
-                    <video src="vid/homenagem-rosto.mov" preload="metadata" muted playsinline ></video>
-                    <div class="play-icon">►</div>
-                    <div class="media-item" data-category="fine-line" data-src="vid/fine-line.MOV">
-                        <video src="vid/fine-line.MOV" preload="metadata" muted playsinline autoplay></video>
-                        <div class="play-icon">►</div>
-                    </div>
-                    <div class="media-item" data-category="fine-line" data-src="vid/fineline1.MOV">
-                        <video src="vid/fineline1.MOV" preload="metadata" muted playsinline></video>
-                        <div class="play-icon">►</div>
-                    </div>
-                    <div class="media-item" data-category="fine-line" data-src="vid/delicada.MOV">
-                        <video src="vid/delicada.MOV" preload="metadata" muted playsinline></video>
-                        <div class="play-icon">►</div>
-                    </div>
-                    <div class="media-item" data-category="fine-line" data-src="vid/fine-line2.MOV">
-                        <video src="vid/fine-line2.MOV" preload="metadata" muted playsinline></video>
-                        <div class="play-icon">►</div>
-                    </div>
-                    <div class="media-item" data-category="fine-line" data-src="vid/fineline3.MOV">
-                        <video src="vid/fineline3.MOV" preload="metadata" muted playsinline></video>
-                        <div class="play-icon">►</div>
-                    </div>
-
-                </div>
-            </div>
-    </section>
-
-    <div id="lightbox" class="lightbox">
-        <span class="close-lightbox">×</span>
-        <div class="lightbox-content">
-        </div>
+    <!-- Background Image -->
+    <div class="fixed inset-0 z-[-1]">
+        <img src="img/fundo.png"
+            alt="Fundo abstrato escuro" class="w-full h-full object-cover opacity-20">
     </div>
 
-    <section class="studio-section">
-        <h2>Feedback dos clientes</h2>
-        <div class="video-grid">
-            <blockquote class="instagram-media" data-instgrm-captioned
-                data-instgrm-permalink="https://www.instagram.com/reel/DDapX85sEnD/?utm_source=ig_embed&utm_campaign=loading"
-                data-instgrm-version="14"
-                style=" background:#030303; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
-            </blockquote>
-            <blockquote class="instagram-media" data-instgrm-captioned
-                data-instgrm-permalink="https://www.instagram.com/p/DKhx72ruE6S/?utm_source=ig_embed&utm_campaign=loading"
-                data-instgrm-version="14"
-                style=" background:#131212; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);">
-            </blockquote>
-        </div>
-        <script async src="//www.instagram.com/embed.js"></script>
-    </section>
+    <!-- Header / Menu Fixo -->
+    <header id="main-header"
+        class="fixed top-0 left-0 w-full bg-black/80 backdrop-blur-sm z-50 transition-all duration-300">
+        <nav class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <!-- Logo no Header --><a href="#">
+                <!-- SUBSTITUA './img/logo.png' PELO CAMINHO REAL DA SUA IMAGEM DE LOGO -->
+                <img src="./img/logo.png" alt="Logo da sua marca" class="h-12 w-12 sm:h-14 sm:w-14">
+            </a>
 
-    <section class="artist-section">
-        <div class="artist-content">
-            <div class="artist-image">
-                <img src="img/cezar.PNG" alt="Foto do tatuador Washington Cezar">
+            <!-- Menu Desktop -->
+            <ul class="hidden md:flex items-center space-x-8">
+                <li><a href="#categorias" class="hover:text-yellow-400 transition-colors">Estilos</a></li>
+                <li><a href="#sobre" class="hover:text-yellow-400 transition-colors">O Artista</a></li>
+                <li><a href="#feedback" class="hover:text-yellow-400 transition-colors">Feedback</a></li>
+                <li><a href="#localizacao" class="hover:text-yellow-400 transition-colors">Localização</a></li>
+            </ul>
+
+            <!-- Botão Orçamento Desktop --><a
+                href="https://wa.me/554197332530?text=Ol%C3%A1%2C%20vi%20seu%20site%20e%20quero%20agendar%20um%20hor%C3%A1rio%20e%20fazer%20a%20tattoo%20dos%20meus%20sonhos"
+                target="_blank"
+                class="hidden md:inline-block bg-yellow-400 text-black font-bold py-2 px-5 rounded-md hover:bg-white transition-all duration-300">
+                Orçamento
+            </a>
+
+            <!-- Botão Menu Mobile --><button id="mobile-menu-button" class="md:hidden text-2xl">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                </svg>
+            </button>
+        </nav>
+        <!-- Menu Mobile (oculto por padrão) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-black/90">
+            <ul class="flex flex-col items-center py-4 space-y-4">
+                <li><a href="#categorias" class="hover:text-yellow-400 transition-colors">Estilos</a></li>
+                <li><a href="#sobre" class="hover:text-yellow-400 transition-colors">O Artista</a></li>
+                <li><a href="#feedback" class="hover:text-yellow-400 transition-colors">Feedback</a></li>
+                <li><a href="#localizacao" class="hover:text-yellow-400 transition-colors">Localização</a></li>
+                <li>
+                    <a href="https://wa.me/554197332530?text=Ol%C3%A1%2C%20vi%20seu%20site%20e%20quero%20agendar%20um%20hor%C3%A1rio%20e%20fazer%20a%20tattoo%20dos%20meus%20sonhos"
+                        target="_blank"
+                        class="bg-yellow-400 text-black font-bold py-2 px-5 rounded-md hover:bg-white transition-all duration-300">
+                        Orçamento
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <!-- Seção Hero -->
+        <section class="min-h-[70vh] md:min-h-screen flex items-center justify-center text-center p-4 pt-20">
+            <h1 class="font-playfair uppercase font-bold">
+                <span
+                    class="block text-yellow-400 text-shadow-neon-gold-bright animate-neon-glow text-[clamp(2.5rem,10vw,7rem)] leading-none">Mais
+                    que uma Tattoo</span>
+                <span
+                    class="block text-gray-100 text-shadow-neon-white animate-neon-glow text-[clamp(2rem,8vw,6rem)] mt-2">Uma
+                    Experiência</span>
+            </h1>
+        </section>
+
+        <!-- Seção de Estilos com Fundo de Partículas -->
+        <section id="categorias" class="py-20 px-4 relative overflow-hidden">
+            <!-- Container para as partículas -->
+            <div id="particles-js" class="absolute inset-0 z-0"></div>
+
+            <!-- Conteúdo da seção -->
+            <div class="container mx-auto relative z-10">
+                <h2
+                    class="animated-title text-5xl md:text-6xl font-playfair text-center mb-12 md:mb-16 text-yellow-500 text-shadow-neon-gold animate-neon-glow">
+                    Conheça os Estilos</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-7xl mx-auto">
+
+                    <!-- Categoria Realismo -->
+                    <div class="video-card cursor-pointer">
+                        <h3 class="text-3xl font-playfair text-center mb-4 text-yellow-600 text-shadow-neon-gold-dark">
+                            Realismo</h3>
+                        <div
+                            class="aspect-square w-full bg-zinc-800 rounded-xl overflow-hidden shadow-lg shadow-yellow-400/20">
+                            <video src="vid/realismo.mp4" autoplay loop muted playsinline
+                                class="w-full h-full object-cover pointer-events-none"></video>
+                        </div>
+                    </div>
+
+                    <!-- Categoria Pet -->
+                    <div class="video-card cursor-pointer">
+                        <h3 class="text-3xl font-playfair text-center mb-4 text-yellow-600 text-shadow-neon-gold-dark">
+                            Pet</h3>
+                        <div
+                            class="aspect-square w-full bg-zinc-800 rounded-xl overflow-hidden shadow-lg shadow-yellow-400/20">
+                            <video src="vid/pet-cat.mp4" autoplay loop muted playsinline
+                                class="w-full h-full object-cover pointer-events-none"></video>
+                        </div>
+                    </div>
+
+                    <!-- Categoria Blackwork -->
+                    <div class="video-card cursor-pointer">
+                        <h3 class="text-3xl font-playfair text-center mb-4 text-yellow-600 text-shadow-neon-gold-dark">
+                            Blackwork</h3>
+                        <div
+                            class="aspect-square w-full bg-zinc-800 rounded-xl overflow-hidden shadow-lg shadow-yellow-400/20">
+                            <video src="vid/blackwork.mp4" autoplay loop muted playsinline
+                                class="w-full h-full object-cover pointer-events-none"></video>
+                        </div>
+                    </div>
+
+                    <!-- Categoria Homenagem -->
+                    <div class="video-card cursor-pointer">
+                        <h3 class="text-3xl font-playfair text-center mb-4 text-yellow-600 text-shadow-neon-gold-dark">
+                            Homenagem</h3>
+                        <div
+                            class="aspect-square w-full bg-zinc-800 rounded-xl overflow-hidden shadow-lg shadow-yellow-400/20">
+                            <video src="vid/homenagem.mp4" autoplay loop muted playsinline
+                                class="w-full h-full object-cover pointer-events-none"></video>
+                        </div>
+                    </div>
+
+                    <!-- Categoria Fine Line -->
+                    <div class="video-card cursor-pointer">
+                        <h3 class="text-3xl font-playfair text-center mb-4 text-yellow-600 text-shadow-neon-gold-dark">
+                            Fine Line</h3>
+                        <div
+                            class="aspect-square w-full bg-zinc-800 rounded-xl overflow-hidden shadow-lg shadow-yellow-400/20">
+                            <video src="vid/borboleta.mp4" autoplay loop muted playsinline
+                                class="w-full h-full object-cover pointer-events-none"></video>
+                        </div>
+                    </div>
+
+                </div>
             </div>
-            <div class="artist-text">
-                <h2>Washington Cezar</h2>
-                <p>
-                    Um tatuador apaixonado pela arte do realismo preto e cinza e pelo estilo ousado do Blackwork. Uma
-                    jornada que começou como um hobby e se transformou em uma paixão avassaladora por eternizar
-                    histórias na pele.
-                </p>
-                <a href="https://wa.me/554197332530?text=Ol%C3%A1!%20Vi%20seu%20site%20e%20gostaria%20de%20agendar%20uma%20sess%C3%A3o."
-                    class="cta-button" target="_blank">solicite seu orçamento</a>
+        </section>
+
+        <!-- Seção Sobre o Artista -->
+        <section id="sobre" class="py-20 px-4 bg-black/50">
+            <div class="container mx-auto flex flex-col md:flex-row items-center gap-12">
+                <div class="md:w-1/3">
+                    <img src="img/cezar.PNG"
+                        alt="Foto do tatuador Washington Cezar"
+                        class="w-full h-auto rounded-xl shadow-lg shadow-yellow-400/20">
+                </div>
+                <div class="md:w-2/3 text-center md:text-left">
+                    <h2
+                        class="animated-title text-5xl md:text-6xl font-playfair text-yellow-500 mb-6 text-shadow-neon-gold animate-neon-glow">
+                        Washington Cezar</h2>
+                    <p class="text-lg text-gray-300 leading-relaxed mb-8">
+                        Um tatuador apaixonado pela arte do realismo preto e cinza e pelo estilo ousado do Blackwork.
+                        Uma jornada que começou como um hobby e se transformou em uma paixão avassaladora por eternizar
+                        histórias na pele.
+                    </p>
+                    <a href="https://wa.me/554197332530?text=Ol%C3%A1%2C%20vi%20seu%20site%20e%20quero%20agendar%20um%20hor%C3%A1rio%20e%20fazer%20a%20tattoo%20dos%20meus%20sonhos"
+                        class="inline-block bg-yellow-400 text-black font-bold py-3 px-8 rounded-md hover:bg-white hover:scale-105 transform transition-all duration-300 text-lg"
+                        target="_blank">
+                        Solicite seu orçamento
+                    </a>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="map-section">
-        <h2>Onde me encontrar</h2>
-        <div class="map-container">
-            <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3603.469475034531!2d-49.282300324895154!3d-25.42256333259695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce50fd048faed%3A0xa23a8857dbc94c82!2sCezar%20-%20Tatuador%20em%20Curitiba!5e0!3m2!1spt-BR!2sbr!4v1756811350959!5m2!1spt-BR!2sbr"
-                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-    </section>
+        <!-- Seção de Feedback -->
+        <section id="feedback" class="py-20 px-4">
+            <div class="container mx-auto text-center">
+                <h2
+                    class="animated-title text-5xl md:text-6xl font-playfair mb-12 md:mb-16 text-yellow-500 text-shadow-neon-gold animate-neon-glow">
+                    Feedback dos Clientes</h2>
+                <div class="flex flex-col md:flex-row justify-center items-center gap-8 max-w-4xl mx-auto">
+                    <!-- Instagram Embeds -->
+                    <blockquote class="instagram-media" data-instgrm-captioned
+                        data-instgrm-permalink="https://www.instagram.com/reel/DDapX85sEnD/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" data-instgrm-version="14"
+                        style="max-width: 500px; min-width: 326px;"></blockquote>
+                    <blockquote class="instagram-media" data-instgrm-captioned
+                        data-instgrm-permalink="https://www.instagram.com/p/DKhx72ruE6S/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==" data-instgrm-version="14"
+                        style="max-width: 500px; min-width: 326px;"></blockquote>
+                </div>
+                <script async src="//www.instagram.com/embed.js"></script>
+            </div>
+        </section>
 
-    <footer class="site-footer">
-        <div class="social-links">
-            <a href="https://www.instagram.com/wcezar.tattoo" target="_blank" class="instagram-float cta-button">
+        <!-- Seção do Mapa -->
+        <section id="localizacao" class="py-20 px-4 bg-black/50">
+            <div class="container mx-auto text-center">
+                <h2
+                    class="animated-title text-5xl md:text-6xl font-playfair mb-12 md:mb-16 text-yellow-500 text-shadow-neon-gold animate-neon-glow">
+                    Onde me encontrar</h2>
+                <div class="max-w-4xl mx-auto rounded-xl overflow-hidden shadow-lg shadow-yellow-400/20">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3603.469475034531!2d-49.282300324895154!3d-25.42256333259695!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94dce50fd048faed%3A0xa23a887dbc94c82!2sCezar%20-%20Tatuador%20em%20Curitiba!5e0!3m2!1spt-BR!2sbr!4v1756811350959!5m2!1spt-BR!2sbr"
+                        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="py-10 px-4 text-center text-gray-400 relative overflow-hidden">
+        <!-- Container para as partículas do rodapé -->
+        <div id="particles-js-footer" class="absolute inset-0 z-0"></div>
+
+        <!-- Conteúdo do rodapé -->
+        <div class="container mx-auto flex flex-col items-center gap-8 relative z-10">
+            <!-- Container para Logo e Botão de Orçamento -->
+            <div class="w-full max-w-lg flex flex-col md:flex-row items-center justify-center gap-6 mb-4">
+                <a href="#">
+                    <!-- IMAGEM DE LOGO -->
+                    <img src="./img/logo.png" alt="Logo da sua marca" class="h-24 w-24">
+                </a>
+                <a href="https://wa.me/554197332530?text=Ol%C3%A1%2C%20vi%20seu%20site%20e%20quero%20agendar%20um%20hor%C3%A1rio%20e%20fazer%20a%20tattoo%20dos%20meus%20sonhos"
+                    class="inline-block bg-yellow-400 text-black font-bold py-3 px-8 rounded-md hover:bg-white hover:scale-105 transform transition-all duration-300 text-lg"
+                    target="_blank">
+                    Solicite seu orçamento
+                </a>
+            </div>
+
+            <a href="https://www.instagram.com/wcezar.tattoo" target="_blank"
+                class="inline-block border border-yellow-400 text-yellow-400 font-bold py-3 px-8 rounded-md hover:bg-yellow-400 hover:text-black hover:scale-105 transform transition-all duration-300 mb-6">
                 Siga no Instagram
             </a>
-        </div>
-        <div class="footer-text">
             <p>© 2024 Washington Cezar Tattoo. Todos os direitos reservados.</p>
         </div>
     </footer>
 
-    <script src="scripts.js"></script>
+    <!-- Lightbox (Zoom do Vídeo) -->
+    <div id="video-lightbox" class="fixed inset-0 bg-black/90 z-[100] hidden items-center justify-center p-4">
+        <button id="close-lightbox"
+            class="absolute top-4 right-4 text-white text-5xl hover:text-yellow-400 transition-colors">&times;</button>
+        <div id="lightbox-content" class="relative max-w-4xl max-h-[90vh]">
+            <!-- O vídeo ampliado será inserido aqui pelo JavaScript -->
+        </div>
+    </div>
 
+    <!-- Biblioteca de Partículas -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <!-- Lógica de interatividade -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- SELEÇÃO DE ELEMENTOS ---
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const header = document.getElementById('main-header');
+            const videoCards = document.querySelectorAll('.video-card');
+            const lightbox = document.getElementById('video-lightbox');
+            const lightboxContent = document.getElementById('lightbox-content');
+            const closeLightboxBtn = document.getElementById('close-lightbox');
+
+            // --- LÓGICA DO MENU MOBILE E HEADER ---
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+            });
+
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 10) {
+                    header.classList.add('shadow-lg', 'shadow-yellow-500/10');
+                } else {
+                    header.classList.remove('shadow-lg', 'shadow-yellow-500/10');
+                }
+            });
+
+            // --- LÓGICA DO LIGHTBOX DE VÍDEO ---
+            function openLightbox(videoSrc) {
+                lightboxContent.innerHTML = '';
+                const videoElement = document.createElement('video');
+                videoElement.src = videoSrc;
+                videoElement.controls = true;
+                videoElement.autoplay = true;
+                videoElement.loop = true;
+                videoElement.muted = true;
+                videoElement.className = "max-w-full max-h-[90vh] rounded-lg";
+
+                lightboxContent.appendChild(videoElement);
+                lightbox.classList.remove('hidden');
+                lightbox.classList.add('flex');
+                document.body.style.overflow = 'hidden';
+            }
+
+            function closeLightbox() {
+                lightboxContent.innerHTML = '';
+                lightbox.classList.add('hidden');
+                lightbox.classList.remove('flex');
+                document.body.style.overflow = 'auto';
+            }
+
+            videoCards.forEach(card => {
+                card.addEventListener('click', () => {
+                    const videoElement = card.querySelector('video');
+                    if (videoElement) {
+                        openLightbox(videoElement.src);
+                    }
+                });
+            });
+
+            closeLightboxBtn.addEventListener('click', closeLightbox);
+            lightbox.addEventListener('click', (event) => {
+                if (event.target === lightbox) {
+                    closeLightbox();
+                }
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === "Escape") {
+                    if (!lightbox.classList.contains('hidden')) {
+                        closeLightbox();
+                    }
+                }
+            });
+
+            // --- ANIMAÇÃO DE TÍTULO AO ROLAR ---
+            const animatedTitles = document.querySelectorAll('.animated-title');
+
+            // Define o estado inicial dos títulos (invisíveis)
+            animatedTitles.forEach(title => {
+                title.style.opacity = '0';
+            });
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const title = entry.target;
+                        // Aplica a animação e garante que ela permaneça no estado final
+                        title.style.animation = `titleRise 1s ease-out forwards`;
+                        // Para de observar o elemento para não re-animar
+                        observer.unobserve(title);
+                    }
+                });
+            }, { threshold: 0.5 }); // A animação começa quando 50% do título está visível
+
+            animatedTitles.forEach(title => {
+                observer.observe(title);
+            });
+
+
+            // --- INICIALIZAÇÃO DAS PARTÍCULAS ---
+            const particleConfig = {
+                "particles": {
+                    "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                    "color": { "value": "#FFD700" },
+                    "shape": { "type": "circle" },
+                    "opacity": { "value": 0.5, "random": true, "anim": { "enable": true, "speed": 1, "opacity_min": 0.1, "sync": false } },
+                    "size": { "value": 3, "random": true },
+                    "line_linked": { "enable": false },
+                    "move": { "enable": true, "speed": 1, "direction": "none", "random": true, "straight": false, "out_mode": "out", "bounce": false }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": { "onhover": { "enable": false }, "onclick": { "enable": false }, "resize": true }
+                },
+                "retina_detect": true
+            };
+
+            particlesJS('particles-js', particleConfig);
+
+            // Clona a configuração para o rodapé, ajustando a quantidade de partículas
+            let footerParticleConfig = JSON.parse(JSON.stringify(particleConfig));
+            footerParticleConfig.particles.number.value = 50; // Menos partículas para o rodapé
+            particlesJS('particles-js-footer', footerParticleConfig);
+        });
+    </script>
 </body>
 
 </html>
